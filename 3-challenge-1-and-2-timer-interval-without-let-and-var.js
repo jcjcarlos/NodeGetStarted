@@ -22,7 +22,7 @@ function challengesOneAndTwo() {
 }
 
 
-//Challenge 2:
+//Challenge 2: With const, one if and only setInterval
 const recursiveSetInterval = function recursiveSetInterval(time = 0, time_pulse = 100, ids_setInterval_list = []) {
     time += time_pulse
     ids_setInterval_list.push(setInterval(recursiveSetInterval, time, time, time_pulse, ids_setInterval_list));
