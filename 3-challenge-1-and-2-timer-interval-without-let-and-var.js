@@ -22,14 +22,19 @@ function challengesOneAndTwo() {
 }
 
 
-//Challenge 2: With const, one if and only setInterval
-const recursiveSetInterval = function recursiveSetInterval(time = 0, time_pulse = 100, ids_setInterval_list = []) {
-    time += time_pulse
-    ids_setInterval_list.push(setInterval(recursiveSetInterval, time, time, time_pulse, ids_setInterval_list));
-    [...Array(5)].forEach((() => console.log(`Hello World. ${time}`)));
-    if (time >= 300) {
-        ids_setInterval_list.forEach(value => clearInterval(value))
-    }
-}
+//Challenge 2: With only const, one if and only setInterval
+const max_time = 1000;
 
+const recursiveSetInterval = function recursiveSetInterval(last_id_setInterval, time = 0, time_pulse = 100) {
+    clearInterval(last_id_setInterval);
+    if (time >= max_time) {
+        return;
+    }
+    time += time_pulse;
+    const id = setInterval(() => {
+        [...Array(5)].forEach((() => console.log(`Hello World. ${time}`)));
+        recursiveSetInterval(id, time);
+    }, time);
+
+}
 recursiveSetInterval();
