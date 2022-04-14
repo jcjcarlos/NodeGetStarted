@@ -11,7 +11,7 @@ recursiveSetTimeout(function(current_time) {
     return true;
 }, 1000);
 
-//Challenge 2: Print "Hello World " + delay, repeating for 5 times, for each 100 miliseconds increment in delay
+//Challenge 2 with Challenge 1 constraints: Print "Hello World " + delay, repeating for 5 times, for each 100 miliseconds increment in delay
 recursiveSetTimeout(function messageRepeat5Times(current_time) {
     [...Array(5)].forEach((() => console.log(`Hello World. ${current_time}`)));
     return current_time < 300;
